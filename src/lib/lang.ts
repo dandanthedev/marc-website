@@ -3,13 +3,17 @@ import { writable } from "svelte/store";
 
 export const langs = [
   {
-    lang: "nl",
-    welcome: "welkom!"
+    lang: "Nederlands",
+    welcome: "Welkom!"
    },
   {
-lang: "en",
-welcome: "welcome!"
-  }
+lang: "English",
+welcome: "Welcome!"
+  },
+  {
+    lang: "Suomi",
+    welcome: "Tervetuloa!"
+  } 
 ]
 
 export const lang = writable(langs[0]);
