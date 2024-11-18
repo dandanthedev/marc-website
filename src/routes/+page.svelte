@@ -1,3 +1,12 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-conf
+<script>
+    import { lang,langs } from "$lib/lang";
+</script>
+
+{#each langs as availableLanguage}
+<button onclick={() => {
+    $lang = availableLanguage;
+}}>
+{availableLanguage.lang}
+</button>
+{/each}
+<h1>{$lang.welcome}</h1>
