@@ -4,6 +4,7 @@
 
 <header>
     <img src="/logo.svg" alt="vera logo"/>
+    <h1>Marc de Krosse!!11!!!</h1>
     <div class="lang">
     {#each langs as availableLanguage}
 <button onclick={() => {
@@ -39,8 +40,18 @@
         background-color: transparent;
         border: none;
         color: white;
-        font-size: 25px;
+        font-size: 20px;
         cursor: pointer;
+
+    }
+
+    h1{
+        /*rainbow text*/
+        background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 154, 0), rgb(208, 222, 33), rgb(79, 220, 74));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 40px;
         
     }
+
 </style>
