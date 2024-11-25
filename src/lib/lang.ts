@@ -29,7 +29,7 @@ pages: {
   },
   {
     lang: "Suomi",
-    welcome: "Tervetuloa valokuvailmiön Marc de Krossen sivuille! Tällä sivustolla voit nähdä ja ostaa hänen upeita kuviaan!",
+    welcome: "Tervetuloa valokuvailmiön Marc de Krosse sivuille! Tällä sivustolla voit nähdä ja ostaa hänen upeita kuviaan!",
     concertPhotographer: "Concert Photographer",
     pages: {
       home: "Koti",

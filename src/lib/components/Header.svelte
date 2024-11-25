@@ -30,30 +30,28 @@
 </script>
 
 <header>
-    <div class="row">
     <div class="logo">
     <img src="/logo.svg" alt="vera logo" class="vera"/>
-    <div>
+    <div class="name">
     <h1>Marc de Krosse</h1>
     <p class="job">{$lang.concertPhotographer}</p>
 </div>
-</div>
-<div class="lang">
-{#each langs as availableLanguage}
-<button onclick={() => {
-$lang = availableLanguage;
-}}>
-<img src={"/flags/" + availableLanguage.lang.toLowerCase() + ".svg"} alt={availableLanguage.lang} class="langImg"/> 
-</button>
-{/each}
-</div>  
-</div>
+
 <div class="row navigation">
     {#each pages as navigationPage}
         <a href={navigationPage.url} class:selected={$page.url.pathname === navigationPage.url}>{navigationPage.title}</a>
         {/each}
 </div>
 
+<div class="lang">
+    {#each langs as availableLanguage}
+    <button onclick={() => {
+    $lang = availableLanguage;
+    }}>
+    <img src={"/flags/" + availableLanguage.lang.toLowerCase() + ".svg"} alt={availableLanguage.lang} class="langImg"/> 
+    </button>
+    {/each}
+    </div>  
 
 </header>
 
@@ -66,11 +64,7 @@ $lang = availableLanguage;
         padding:10px;
         border-radius: 10px;
 
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        justify-items: center;
+   
         
 
     }
@@ -101,31 +95,13 @@ $lang = availableLanguage;
     }
     
 
-    aside{
-        background-color: rgb(0, 0, 0);
-        padding:10px;
-        border-radius: 10px;
-        position: absolute;
-         top: 0;
-         left: 0;
-         bottom: 0;
-         /*todo: responsive*/
-         width: 200px;
 
-         display: flex;
-         flex-direction: column;
-         gap: 10px;
-         align-items: center;
-         justify-items: center;
-         
-    }
-
- 
 
     .logo{
         display: flex;
         gap: 20px;
         align-items: center;
+        justify-content: left;
     }
 
     .job{
@@ -137,12 +113,6 @@ $lang = availableLanguage;
         width: 50px;
     }
     
-    .sideImg{
-        margin-top: 20px;
-        width: 100%;
-        border-radius: 10px;
-        
-    }
 
     .row{
         width: 100%;
@@ -171,6 +141,10 @@ $lang = availableLanguage;
     .navigation a.selected{
         color: #014FA3;
         font-weight: bold;
+    }
+
+    .name h1{
+        width: 300px;
     }
 
 </style>
