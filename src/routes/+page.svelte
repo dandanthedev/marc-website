@@ -8,7 +8,7 @@
 		<div class="item">
 			<img src="/home.jpg" alt="Thuisfoto" />
 		</div>
-		<h1 class="item">{$lang.welcome}</h1>
+		<h1 class="item welcome">{$lang.welcome}</h1>
 
 		<div class="item ytGrid">
 			<div class="video">
@@ -75,5 +75,10 @@
 	.ytGrid .item {
 		width: 100%;
 		margin-bottom: 20px;
+	}
+
+	.welcome{
+		width: 1400px;
+		text-align: center;
 	}
 </style>
