@@ -4,7 +4,7 @@ import { writable } from "svelte/store";
 export const langs = [
   {
     lang: "Nederlands",
-    welcome: "Welkom op de website van het fotofenomeen Marc de Krosse! Op deze site kan je zijn geweldige foto's zien en kopen!",
+    welcome: "Welkom op de website van het fotofenomeen Marc de Krosse!<br/> Op deze site kan je zijn geweldige foto's zien en kopen!",
     concertPhotographer: "Concertfotograaf",
 
     pages: {
@@ -17,7 +17,7 @@ export const langs = [
    },
   {
 lang: "English",
-welcome: "Welcome to the website of the photo phenomenon Marc de Krosse! On this site you can see and buy his great photos!",
+welcome: "Welcome to the website of the photo phenomenon Marc de Krosse!<br/> On this site you can see and buy his great photos!",
 concertPhotographer: "Concert Photographer",
 pages: {
   home: "Home",
@@ -29,7 +29,7 @@ pages: {
   },
   {
     lang: "Suomi",
-    welcome: "Tervetuloa valokuvailmiön Marc de Krosse sivuille! Tällä sivustolla voit nähdä ja ostaa hänen upeita kuviaan!",
+    welcome: "Tervetuloa valokuvailmiön Marc de Krosse sivuille!<br/> Tällä sivustolla voit nähdä ja ostaa hänen upeita kuviaan!",
     concertPhotographer: "Concert Photographer",
     pages: {
       home: "Koti",

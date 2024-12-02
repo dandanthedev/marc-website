@@ -3,12 +3,12 @@
 	import { Youtube } from 'svelte-youtube-lite';
 </script>
 
-<div class="center">
 	<div class="twoItems">
 		<div class="item">
-			<img src="/home.jpg" alt="Thuisfoto" />
+			<img src="/home.jpg" alt="Thuisfoto" class="homePicture"
+			/>
 		</div>
-		<h1 class="item welcome">{$lang.welcome}</h1>
+		<h1 class="item welcome">{@html $lang.welcome}</h1>
 
 		<div class="item ytGrid">
 			<div class="video">
@@ -26,14 +26,11 @@
 			</div>
 		</div>
 	</div>
-</div>
 
 <style>
 	h1 {
 		text-align: center;
-		font-size: 30px;
-		max-width: 900px;
-		margin-top: 10px;
+		font-size: 40px;
 	}
 
 	.center {
@@ -48,8 +45,9 @@
 
 	.twoItems {
 		display: flex;
-
+		margin-top: 10px;
 		gap: 20px;
+		height: 700px;
 	}
 
 	.item {
@@ -57,6 +55,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.video {
@@ -78,7 +77,14 @@
 	}
 
 	.welcome{
-		width: 1400px;
 		text-align: center;
+	}
+
+	img {
+		border-radius: 10px;
+	}
+
+	.homePicture {
+		height: 690px;
 	}
 </style>
