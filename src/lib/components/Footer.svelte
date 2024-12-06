@@ -7,7 +7,7 @@
         background-color: rgb(0, 0, 0);
         padding:10px;
         text-align: center;
-        position: absolute;
+        position: fixed;
          bottom: 0;
          left: 0;
          right: 0;

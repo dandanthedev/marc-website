@@ -20,6 +20,11 @@ export const langs = [
 			email: 'E-mail',
 			message: 'Bericht',
 			send: 'Verstuur'
+		},
+
+		notFound: {
+			title: 'Pagina niet gevonden :(',
+			message: 'De pagina die je zocht bestaat (nog) niet. Probeer het opnieuw of ga naar de homepage.'
 		}
 	},
 	{
@@ -40,7 +45,12 @@ export const langs = [
             email: 'Email',
             message: 'Message',
             send: 'Send'
-        }
+        },
+
+		notFound: {
+			title: 'Page not found :(',
+			message: 'The page you are looking for does not exist (yet). Try again or go to the homepage.'		
+		}
 	},
 	{
 		lang: 'Suomi',
@@ -60,7 +70,12 @@ export const langs = [
             email: 'Sähköposti',
             message: 'Viesti',
             send: 'Lähetä'
-        }
+        },
+
+		notFound: {
+			title: 'Sivua ei löydy :(',
+			message: 'Etsimääsi sivua ei ole vielä olemassa. Yritä uudelleen tai mene etusivulle.'
+		}
 	}
 ];
 

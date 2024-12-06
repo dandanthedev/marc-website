@@ -6,7 +6,19 @@ import type { ActionData, PageData } from './$types';
  
 
 </script>
-
+<div class="align">
+    <div>
+<h1>
+    Neem Zelf Contact Op Met Marc
+</h1>
+<p>
+E-mailadres: marcdekrosse@heetmail.kom
+<br/>
+Telefoonnummer: +31 6 12345678
+<br/>
+Adres: Oosterstraat 44, Groningen, Nederland
+</p>
+</div>
     <div class="contact-form">
         <form method="POST" use:enhance>
             <div class="form-group">
@@ -28,18 +40,31 @@ import type { ActionData, PageData } from './$types';
           </form>
     </div>
 
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2389.0456978399156!2d6.567531077062047!3d53.21702898439117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c9cd56c4852557%3A0xe2ed17b9050edcc5!2sVera!5e0!3m2!1sen!2snl!4v1733473891996!5m2!1sen!2snl" 
+width="600" height="450" fixed style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
 <style>
+    .align{
+        display: flex;
+        justify-content: space-around;
+        /*spread out the divs*/
+    
+        margin-top: 5px;
+        
+    }
+
     .contact-form {
-        max-width: 500px;
+        align-items: center;
+        width: 500px;
         margin: 0 auto;
         background: white;
         padding: 20px;
         margin: 20px;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display:block;
-        margin-left: auto;
-        margin-right: auto;
         color: black;
     }
     .form-group {
@@ -65,6 +90,6 @@ import type { ActionData, PageData } from './$types';
         cursor: pointer;
     }
     button:hover {
-        background-color: #033a75;
+        background-color: #003e80;
     }
 </style>

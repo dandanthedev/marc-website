@@ -41,6 +41,7 @@
         <button
             onclick={() => {
                 $lang = availableLanguage;
+                localStorage.setItem('lang', availableLanguage.lang);
             }}
         >
             <img
@@ -72,6 +73,8 @@
                 }}>{navigationPage.title}</a
 				>
 			{/each}
+
+            {@render flags()}
 		</div>
 	</div>
 {/if}
@@ -115,13 +118,9 @@
 
 <style>
     .hideOnMobile{
-        display: none;
+        display: block;
     }
-    @media (max-width: 1270px) {
-        .hideOnMobile{
-            display: block;
-        }
-    }
+
 
 	header {
 		background-color: rgb(0, 0, 0);
@@ -205,6 +204,7 @@
 
 	.mobileButton {
 		display: none;
+        text-align: right;
 	}
 
 	.mobileButton button {
@@ -213,13 +213,14 @@
 		color: white;
 		font-size: 30px;
 		cursor: pointer;
+        text-align: right;
 	}
 
 	.mobileButton button:hover {
 		color: #014fa3;
 	}
 
-	@media (max-width: 1270px) {
+	@media (max-width: 1200px) {
 		.navigation {
 			display: none;
 		}
@@ -227,6 +228,10 @@
 		.mobileButton {
 			display: block;
 		}
+
+        .hideOnMobile{
+            display: none;
+        }
 	}
 
 	.mobileMenu {
