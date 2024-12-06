@@ -1,20 +1,31 @@
+<script lang="ts">
+import type { ActionData, PageData } from './$types';
+	import { lang } from "$lib/lang";
+	import { enhance } from '$app/forms';
+    let { data, form }: { data: PageData, form: ActionData } = $props();
+ 
+
+</script>
 
     <div class="contact-form">
-        <form action="mailto:eetu@familykallio.net" method="GET">
+        <form method="POST" use:enhance>
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">{$lang.contact.name}</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">{$lang.contact.email}</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="message">Message</label>
+                <label for="message">{$lang.contact.message}</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
             </div>
-            <button type="submit">Send Message</button>
-        </form>
+            <button type="submit">{$lang.contact.send}</button>
+            {#if form?.message}
+                <p>{form.message}</p>
+            {/if}
+          </form>
     </div>
 
 <style>
@@ -46,14 +57,14 @@
         border-radius: 4px;
     }
     button {
-        padding: 10px 20px;
-        background-color: #007BFF;
+        padding: 12px 25px;
+        background-color: #014FA3;
         color: white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
     }
     button:hover {
-        background-color: #0056b3;
+        background-color: #033a75;
     }
 </style>
