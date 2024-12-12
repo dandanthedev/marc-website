@@ -1,19 +1,19 @@
 <footer>
-    <p>© {new Date().getFullYear()} Daan Schenkel, Eetu Kallio & Yang Pei Fokkens | Schoolopdracht</p>
+	<p>
+		© {new Date().getFullYear()} Daan Schenkel, Eetu Kallio & Yang Pei Fokkens | Schoolopdracht
+	</p>
 </footer>
 
 <style>
-    footer{
-        background-color: rgb(0, 0, 0);
-        padding:10px;
-        text-align: center;
-        position: fixed;
-         bottom: 0;
-         left: 0;
-         right: 0;
-    }
-    p{
-        color: white;
-        font-size: 20px;
-    }
+	footer {
+		background-color: rgb(0, 0, 0);
+		padding: 10px;
+		text-align: center;
+		margin-bottom: 0;
+		margin-top: 10px;
+	}
+	p {
+		color: white;
+		font-size: 20px;
+	}
 </style>

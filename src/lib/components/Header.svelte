@@ -36,22 +36,22 @@
 </script>
 
 {#snippet flags()}
-<div class="lang">
-    {#each langs as availableLanguage}
-        <button
-            onclick={() => {
-                $lang = availableLanguage;
-                localStorage.setItem('lang', availableLanguage.lang);
-            }}
-        >
-            <img
-                src={'/flags/' + availableLanguage.lang.toLowerCase() + '.svg'}
-                alt={availableLanguage.lang}
-                class="langImg"
-            />
-        </button>
-    {/each}
-</div>
+	<div class="lang">
+		{#each langs as availableLanguage}
+			<button
+				onclick={() => {
+					$lang = availableLanguage;
+					localStorage.setItem('lang', availableLanguage.lang);
+				}}
+			>
+				<img
+					src={'/flags/' + availableLanguage.lang.toLowerCase() + '.svg'}
+					alt={availableLanguage.lang}
+					class="langImg"
+				/>
+			</button>
+		{/each}
+	</div>
 {/snippet}
 
 {#if mobileMenuOpen}
@@ -67,14 +67,16 @@
 		</div>
 		<div class="menu">
 			{#each pages as navigationPage}
-				<a href={navigationPage.url} class:selected={$page.url.pathname === navigationPage.url}
-                onclick={() => {
-                    mobileMenuOpen = false;
-                }}>{navigationPage.title}</a
+				<a
+					href={navigationPage.url}
+					class:selected={$page.url.pathname === navigationPage.url}
+					onclick={() => {
+						mobileMenuOpen = false;
+					}}>{navigationPage.title}</a
 				>
 			{/each}
 
-            {@render flags()}
+			{@render flags()}
 		</div>
 	</div>
 {/if}
@@ -99,37 +101,42 @@
 
 		<div class="row navigation">
 			{#each pages as navigationPage}
-				<a
-					href={navigationPage.url}
-					class:selected={$page.url.pathname === navigationPage.url}
-				>{navigationPage.title}</a
+				<a href={navigationPage.url} class:selected={$page.url.pathname === navigationPage.url}
+					>{navigationPage.title}</a
 				>
 			{/each}
 		</div>
 
-        <div class="hideOnMobile">
-        {@render flags()}
-    </div>
-		
+		<div class="hideOnMobile">
+			{@render flags()}
+		</div>
 	</div>
 </header>
+<div class="headerSpacer"></div>
 
 <!-- <img class="sideImg" src={"/header/" + pictureId + ".jpg"} alt="header picture"/> -->
 
 <style>
-    .hideOnMobile{
-        display: block;
-    }
-
+	.hideOnMobile {
+		display: block;
+	}
 
 	header {
 		background-color: rgb(0, 0, 0);
 		padding: 10px;
-		border-radius: 10px;
-
-		border-top-left-radius: 0px;
-		border-top-right-radius: 0px;
+		color: white;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100px;
+		position: absolute;
+		z-index: 100;
 	}
+
+	.headerSpacer {
+		height: 110px;
+	}
+
 	.vera {
 		height: 80px;
 		width: auto;
@@ -139,6 +146,7 @@
 	.lang {
 		display: flex;
 		gap: 10px;
+		margin-right: 20px;
 	}
 	button {
 		background-color: transparent;
@@ -199,12 +207,12 @@
 	}
 
 	.name h1 {
-		width: 300px;
+		width: 230px;
 	}
 
 	.mobileButton {
 		display: none;
-        text-align: right;
+		text-align: right;
 	}
 
 	.mobileButton button {
@@ -213,7 +221,7 @@
 		color: white;
 		font-size: 30px;
 		cursor: pointer;
-        text-align: right;
+		text-align: right;
 	}
 
 	.mobileButton button:hover {
@@ -229,9 +237,16 @@
 			display: block;
 		}
 
-        .hideOnMobile{
-            display: none;
-        }
+		.hideOnMobile {
+			display: none;
+		}
+	}
+
+	@media (max-width: 410px) {
+		.name h1 {
+			width: 200px;
+			font-size: 24px;
+		}
 	}
 
 	.mobileMenu {
