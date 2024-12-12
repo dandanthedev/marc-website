@@ -3,44 +3,34 @@
 	import { Youtube } from 'svelte-youtube-lite';
 </script>
 
-	<div class="twoItems">
-		<div class="item">
-			<img src="/home.jpg" alt="Thuisfoto" class="homePicture"
-			/>
-		</div>
-		<h1 class="item welcome">{@html $lang.welcome}</h1>
+<div class="twoItems">
+	<div class="item">
+		<img src="/home.jpg" alt="Thuisfoto" class="homePicture" />
+	</div>
+	<h1 class="item welcome">{@html $lang.welcome}</h1>
 
-		<div class="item ytGrid">
-			<div class="video">
-				<Youtube id="UP_743Av4XI" showTitle={false} />
-			</div>
-			<div class="video">
-				<Youtube id="XZqipNRpW6U" showTitle={false} />
-			</div>
-            
-			<div class="video">
-				<Youtube id="bYMXWE_PATY" showTitle={false} />
-			</div>
-			<div class="video">
-				<Youtube id="hGf8rLqI_dA" showTitle={false} />
-			</div>
+	<div class="item ytGrid">
+		<div class="video">
+			<Youtube id="UP_743Av4XI" showTitle={false} />
+		</div>
+		<div class="video">
+			<Youtube id="XZqipNRpW6U" showTitle={false} />
+		</div>
+
+		<div class="video">
+			<Youtube id="bYMXWE_PATY" showTitle={false} />
+		</div>
+		<div class="video">
+			<Youtube id="hGf8rLqI_dA" showTitle={false} />
 		</div>
 	</div>
+</div>
 
 <style>
 	h1 {
 		text-align: center;
 		font-size: 40px;
-	}
-
-	.center {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		max-width: 1200px;
-		margin: 0 auto;
-		margin-top: 10px;
+		color: white;
 	}
 
 	.twoItems {
@@ -76,7 +66,7 @@
 		margin-bottom: 20px;
 	}
 
-	.welcome{
+	.welcome {
 		text-align: center;
 	}
 
