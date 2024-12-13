@@ -20,8 +20,7 @@
 	}
 
 	img {
-		width: 400px;
-		height: 400px;
+		width: 300px;
 		border-radius: 10px;
 	}
 </style>
