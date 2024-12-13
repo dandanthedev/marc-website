@@ -1,6 +1,8 @@
 <script>
 
 	import { lang } from "$lib/lang";
+	import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+	import Fa from "svelte-fa";
 
 </script>
 <div class="footerSpacer"></div>
@@ -9,6 +11,12 @@
 	<a href="https://www.vera-groningen.nl/photos/?category=marc-de-krosse" target="_blank">
 		<img src="/logo.svg" alt="Vera Logo" class="veraLogo" />
 	</a>
+	<a href="https://www.youtube.com/@looptoprolletjes" target="_blank">
+		<Fa icon={faYoutube} color="white" size="2x"/>
+		</a>
+		<a href="https://www.instagram.com/marcdekrosse/" target="_blank">
+			<Fa icon={faInstagram} color="white" size="2x"/>
+		</a>
 	<div class="footerText">
 	<p>
 		© {new Date().getFullYear()} Daan Schenkel, Eetu Kallio & Yang Pei Fokkens | {$lang.footer.school}

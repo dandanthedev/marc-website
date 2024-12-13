@@ -1,9 +1,10 @@
 <script>
 	import { lang } from '$lib/lang';
+	import MarcInDeRuimte from '$lib/assets/marcinderuimte.png?enhanced';
 </script>
 
 <div>
-	<img src="/marcinderuimte.png" alt="Marc de Krosse" />
+	<enhanced:img src={MarcInDeRuimte} alt="Marc de Krosse" class="img" />
 	<h1>{$lang.notFound.title}</h1>
 	<p>{$lang.notFound.message}</p>
 </div>
@@ -19,8 +20,9 @@
 		color: white;
 	}
 
-	img {
+	.img {
 		width: 300px;
+		height: 300px;
 		border-radius: 10px;
 	}
 </style>
