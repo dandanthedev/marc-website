@@ -209,7 +209,6 @@
 
 	.navigation a.selected {
 		color: #F79238;
-		font-weight: bold;
 	}
 
 	.name h1 {
