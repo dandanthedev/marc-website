@@ -1,9 +1,10 @@
 <script>
 	import { lang } from '$lib/lang';
+	import aboutImage from '$lib/assets/about.png?enhanced';
 </script>
 
 <div class="container">
-	<img src="/about.png" alt="Vera Image" class="image" />
+	<enhanced:img src={aboutImage} alt="Vera Image" class="image" /> 
 
 	<!-- Tekst -->
 	<div class="text">
@@ -35,23 +36,25 @@
 	}
 
 	.image {
-		height: 75%;
-		padding: 40px;
+		height: 78%;
+		padding-left: 40px;
+		padding-top: 20px;
 		object-fit: cover;
 	}
 
 	.text {
 		flex: 1;
-		padding: 20px;
+		padding: 30px;
 		overflow-y: auto;
 		height: 100%;
 		box-sizing: border-box;
-		font-size: 24px;
+		font-size: 26px;
+		padding-right: 300px;
 		border-top-right-radius: 10%;
 	}
 
 	h1 {
-		font-size: 45px;
+		font-size: 35px;
 		line-height: 0.1;
 	}
 </style>

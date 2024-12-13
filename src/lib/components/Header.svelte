@@ -4,6 +4,8 @@
 	import Fa from 'svelte-fa';
 	import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 	import { fade } from 'svelte/transition';
+	import logo from '$lib/assets/headerlogo.gif';
+
 
 	let mobileMenuOpen = $state(false);
 
@@ -83,9 +85,12 @@
 
 <header>
 	<div class="logo">
-		<img src="/logo.svg" alt="vera logo" class="vera" />
+		<a href="/">
+		<img src={logo} alt="vera logo" class="vera" />
+	</a>
 		<div class="name">
 			<h1>Marc de Krosse</h1>
+		
 			<p class="job">{$lang.concertPhotographer}</p>
 		</div>
 
