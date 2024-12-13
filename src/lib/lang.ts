@@ -16,10 +16,13 @@ export const langs = [
 		},
 
 		contact: {
+			title: 'Neem zelf contact op met Marc',
 			name: 'Naam',
 			email: 'E-mail',
 			message: 'Bericht',
-			send: 'Verstuur'
+			send: 'Verstuur',
+			phone: 'Telefoonnummer',
+			address: 'Adres'
 		},
 
 		notFound: {
@@ -63,10 +66,13 @@ export const langs = [
 		},
 
 		contact: {
+			title: 'Contact Marc',
 			name: 'Name',
 			email: 'Email',
 			message: 'Message',
-			send: 'Send'
+			send: 'Send',
+			phone: 'Phone number',
+			address: 'Address'
 		},
 
 		notFound: {
@@ -110,10 +116,13 @@ did not want to."`
 		},
 
 		contact: {
+			title: 'Ota yhteyttä Marcille',
 			name: 'Nimi',
 			email: 'Sähköposti',
 			message: 'Viesti',
-			send: 'Lähetä'
+			send: 'Lähetä',
+			phone: 'Puhelinnumero',
+			address: 'Osoite'
 		},
 
 		notFound: {

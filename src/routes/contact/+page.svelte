@@ -3,7 +3,13 @@
 	import { lang } from '$lib/lang';
 	import { enhance } from '$app/forms';
 	let { data, form }: { data: PageData; form: ActionData } = $props();
+	import SvelteSEO from "svelte-seo";
 </script>
+
+<SvelteSEO
+  title="Marc de Krosse | Contact"
+  description="Neem contact op met Marc"
+/>
 
 <div class="align">
 	<div class="item">
@@ -24,15 +30,15 @@
 
 	
 	</div>
-	<div>
+	<div class="spaceBetween">
 	<div class="item text">
-		<h1>Neem Zelf Contact Op Met Marc</h1>
+		<h1>{$lang.contact.title}</h1>
 		<p>
-			E-mailadres: marcdekrosse@heetmail.kom
+			{$lang.contact.email}: marcdekrosse@heetmail.kom
 			<br />
-			Telefoonnummer: +31 6 12345678
+		     {$lang.contact.phone}: +31 6 12345678
 			<br />
-			Adres: Oosterstraat 44, Groningen, Nederland
+			{$lang.contact.address}: Oosterstraat 44, Groningen, Nederland
 		</p>
 	
 	</div>
@@ -49,10 +55,17 @@
 </div>
 
 <style>
+	.spaceBetween {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+	}
+
 	.maps {
 		border-radius: 8px;
 		height: 200px;
-		width: 90%;
+		width: 100%;
+		margin-bottom: 20px;
 	}
 	.align {
 		display: flex;

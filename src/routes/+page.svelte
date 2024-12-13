@@ -1,11 +1,20 @@
 <script>
 	import { lang } from '$lib/lang';
 	import { Youtube } from 'svelte-youtube-lite';
+
+	import homeImage from '$lib/assets/home.jpg?enhanced';
+	import SvelteSeo from "svelte-seo";
+
 </script>
+
+<SvelteSeo
+  title="Marc de Krosse | Home"
+  description="Welkom op de website van Marc de Krosse!"
+/>
 
 <div class="twoItems">
 	<div class="item">
-		<img src="/home.jpg" alt="Thuisfoto" class="homePicture" />
+		<enhanced:img src={homeImage} alt="Thuisfoto" class="homePicture" />
 	</div>
 	<h1 class="item welcome">{@html $lang.welcome}</h1>
 

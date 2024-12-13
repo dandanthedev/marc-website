@@ -1,8 +1,12 @@
 <script>
 	import { lang } from '$lib/lang';
 	import aboutImage from '$lib/assets/about.png?enhanced';
+	import SvelteSEO from "svelte-seo";
 </script>
-
+<SvelteSEO
+  title="Marc de Krosse | About"
+  description="Wie is Marc de Krosse?"
+/>
 <div class="container">
 	<enhanced:img src={aboutImage} alt="Vera Image" class="image" /> 
 
@@ -30,27 +34,29 @@
 		font-family: Arial, sans-serif;
 		display: flex;
 		justify-content: center;
-		height: calc(100vh - 100px);
+		height: calc(100vh - 190px);
 		overflow: hidden;
 		color: white;
 	}
 
 	.image {
-		height: 78%;
+		height: 80%;
 		padding-left: 40px;
-		padding-top: 20px;
+		padding-top: 45px;
 		object-fit: cover;
+		border-radius: 10px;
 	}
 
 	.text {
 		flex: 1;
-		padding: 30px;
+		padding-left: 50px;
+		padding-top: 30px;
 		overflow-y: auto;
 		height: 100%;
 		box-sizing: border-box;
 		font-size: 26px;
 		padding-right: 300px;
-		border-top-right-radius: 10%;
+		
 	}
 
 	h1 {
