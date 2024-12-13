@@ -50,6 +50,10 @@ export const langs = [
 			optreden, dan heb je ook de bezwete hoofden aan het einde. Daar gebeurt veel meer dan aan het
 			begin." We stellen ons altijd van tevoren netjes voor aan de band, vragen toestemming om te
 			fotograferen. In die veertien jaar heb ik één keer meegemaakt dat een band niet wilde."`
+		},
+
+		footer: {
+			school: 'Schoolopdracht'
 		}
 	},
 	{
@@ -100,6 +104,10 @@ performance, so you also have sweaty heads at the end. Much more happens there t
 beginning." We always properly introduce ourselves to the band in advance, ask permission to
 take pictures. In those fourteen years, I have only experienced one time that a band
 did not want to."`
+		},
+
+		footer: {
+			school: 'School assignment'
 		}
 	},
 	{
@@ -147,6 +155,10 @@ did not want to."`
 			syvälliset päänsä loppuun. Useampi kuin alkuun." Olemme aina varmistamaan, että otamme
 			kaikki tarpeelliset valokuvat. Kun kahdeksan vuotta on ollut, olen ollut yksi kerta, joka
 			ei halunnut."`
+		},
+
+		footer: {
+			school: 'Koulutehtävä'
 		}
 	}
 ];

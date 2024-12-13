@@ -1,12 +1,17 @@
+<script>
+
+	import { lang } from "$lib/lang";
+
+</script>
 <div class="footerSpacer"></div>
 
 <footer>
-	<a href="https://vera-groningen.nl/" target="_blank">
+	<a href="https://www.vera-groningen.nl/photos/?category=marc-de-krosse" target="_blank">
 		<img src="/logo.svg" alt="Vera Logo" class="veraLogo" />
 	</a>
 	<div class="footerText">
 	<p>
-		© {new Date().getFullYear()} Daan Schenkel, Eetu Kallio & Yang Pei Fokkens | Schoolopdracht
+		© {new Date().getFullYear()} Daan Schenkel, Eetu Kallio & Yang Pei Fokkens | {$lang.footer.school}
 	</p>
 </div>
 </footer>
