@@ -136,6 +136,7 @@
 		height: 100px;
 		position: absolute;
 		z-index: 100;
+		border-bottom: 2px solid #F79238;
 	}
 
 	.headerSpacer {
@@ -203,11 +204,11 @@
 	}
 
 	.navigation a:hover {
-		color: #014fa3;
+		color: #F79238;
 	}
 
 	.navigation a.selected {
-		color: #014fa3;
+		color: #F79238;
 		font-weight: bold;
 	}
 
