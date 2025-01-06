@@ -18,13 +18,31 @@
 			<Fa icon={faInstagram} color="white" size="2x"/>
 		</a>
 	<div class="footerText">
-	<p>
-		© {new Date().getFullYear()} Daan Schenkel, Eetu Kallio & Yang Pei Fokkens | {$lang.footer.school}
+	<p class="fullCredit">
+		© {new Date().getFullYear()} Daan Schenkel, Yang Pei Fokkens & Eetu Kallio  | {$lang.footer.school}
 	</p>
+	<p class="smallCredit">
+		© {new Date().getFullYear()}
+		</p>
 </div>
 </footer>
 
 <style>
+	.smallCredit {
+		display: none;
+	}
+
+	@media (max-width: 1100px) {
+		.fullCredit {
+			display: none;
+		}
+		.smallCredit {
+			display: flex;
+		}
+	}
+
+
+
 	.footerText {
 		display: flex;
 		justify-content: center;
