@@ -33,6 +33,7 @@
 	<div class="spaceBetween">
 	<div class="item text">
 		<h1>{$lang.contact.title}</h1>
+	
 		<p>
 			{$lang.contact.email}: marcdekrosse@heetmail.kom
 			<br />
@@ -63,7 +64,7 @@
 
 	.maps {
 		border-radius: 8px;
-		height: 200px;
+		height: 300px;
 		width: 100%;
 		margin-bottom: 20px;
 	}
@@ -77,9 +78,9 @@
 		align-items: center;
 		margin: 0 auto;
 		background: white;
-		padding: 20px;
+		padding: 50px;
 		margin: 20px;
-		border-radius: 8px;
+		border-radius: 10px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		color: black;
 	}
@@ -90,7 +91,7 @@
 	}
 	input,
 	textarea {
-		padding: 10px;
+		padding: 20px;
 		border: 1px solid #ccc;
 		border-radius: 4px;
 		width: 95%;
@@ -121,14 +122,17 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			
 		}
 
 		.text {
 			text-align: center;
+			
 		}
 	}
 
 	.item {
 		color: white;
+		font-size: 110%;
 	}
 </style>
