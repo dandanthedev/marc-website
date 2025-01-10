@@ -27,36 +27,37 @@
 <style>
 	.container {
 		display: flex;
-		width: 100%;
+		width: 90%;
 		height: 100%;
 		margin: 0;
-		padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+
+		padding-top: 0px;
 		font-family: Arial, sans-serif;
 		display: flex;
 		justify-content: center;
-		height: calc(100vh - 190px);
+		height: calc(100vh - 220px);
 		overflow: hidden;
 		color: white;
 	}
 
 	.image {
-		height: 80%;
-		padding-left: 40px;
-		padding-top: 45px;
+		height: 100%;
 		object-fit: cover;
 		border-radius: 10px;
+		margin: 10px;
 	}
 
 	.text {
-		flex: 1;
-		padding-left: 50px;
-		padding-top: 30px;
+		
+		padding-left: 120px;
+		padding-top: 10px;
 		overflow-y: auto;
 		height: 100%;
 		box-sizing: border-box;
-		font-size: 26px;
-		padding-right: 300px;
-		
+		font-size: 24px;
+	margin-right: 200px;		
 	}
 
 	h1 {
