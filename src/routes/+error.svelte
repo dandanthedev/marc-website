@@ -18,6 +18,7 @@
 		flex-direction: column;
 		margin-top: 10px;
 		color: white;
+		text-align: center;
 	}
 
 	.img {
