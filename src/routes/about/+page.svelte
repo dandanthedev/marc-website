@@ -57,7 +57,7 @@
 		height: 100%;
 		box-sizing: border-box;
 		font-size: 24px;
-	margin-right: 200px;		
+	margin-right: 0px;		
 	}
 
 	h1 {
