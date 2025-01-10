@@ -58,15 +58,7 @@
 
 {#if mobileMenuOpen}
 	<div class="mobileMenu" transition:fade={{ duration: 200 }}>
-		<div class="closeButton">
-			<button
-				onclick={() => {
-					mobileMenuOpen = false;
-				}}
-			>
-				<Fa icon={faClose} />
-			</button>
-		</div>
+		
 		<div class="menu">
 			{#each pages as navigationPage}
 				<a
@@ -97,7 +89,7 @@
 		<div class="row mobileButton">
 			<button
 				onclick={() => {
-					mobileMenuOpen = true;
+					mobileMenuOpen = !mobileMenuOpen;
 				}}
 			>
 				<Fa icon={faBars} />
@@ -218,6 +210,7 @@
 	.mobileButton {
 		display: none;
 		text-align: right;
+
 	}
 
 	.mobileButton button {
@@ -245,6 +238,8 @@
 		.hideOnMobile {
 			display: none;
 		}
+
+
 	}
 
 	@media (max-width: 410px) {
@@ -265,6 +260,8 @@
 		align-items: center;
 		justify-content: center;
 		z-index: 100;
+
+		backdrop-filter: blur(10px);
 	}
 
 	.closeButton {
