@@ -4,7 +4,7 @@ export const langs = [
 	{
 		lang: 'Nederlands',
 		welcome:
-			"Welkom op de website van de fotograaf Marc de Krosse!<br/> Op deze site kan je zijn geweldige foto's zien en kopen!",
+			"Welkom op de website van de concertfotograaf Marc de Krosse!<br/> Op deze site kan je zijn geweldige foto's zien en kopen!",
 		concertPhotographer: 'Concertfotograaf',
 
 		pages: {
@@ -59,7 +59,7 @@ export const langs = [
 	{
 		lang: 'English',
 		welcome:
-			'Welcome to the website of the photographer Marc de Krosse!<br/> On this site you can see and buy his great photos!',
+			'Welcome to the website of the concert photographer Marc de Krosse!<br/> On this site you can see and buy his great photos!',
 		concertPhotographer: 'Concert Photographer',
 		pages: {
 			home: 'Home',
@@ -113,7 +113,7 @@ did not want to."`
 	{
 		lang: 'Suomi',
 		welcome:
-			'Tervetuloa valokuvaaja Marc de Krosse sivulle!<br/> Tällä sivulla voit nähdä ja ostaa hänen upeita kuviaan!',
+			'Tervetuloa concerti valokuvaaja Marc de Krossein sivulle!<br/> Tällä sivulla voit nähdä ja ostaa hänen upeita kuviaan!',
 		concertPhotographer: 'Concert Photographer',
 		pages: {
 			home: 'Koti',
