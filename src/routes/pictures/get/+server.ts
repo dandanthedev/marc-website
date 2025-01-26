@@ -24,6 +24,7 @@ export async function GET({ url }) {
 			}
 		);
 	}
+
 	const search = params.get('q');
 	if (search && typeof search !== 'string') {
 		return json(
@@ -57,7 +58,18 @@ export async function GET({ url }) {
 	const start = (page - 1) * _perPage;
 	const end = start + _perPage;
 
-	const searchResults = pictures.filter((picture) => {
+	const sliced = pictures.slice(start, end);
+	if (sliced.length === 0)
+		return json(
+			{
+				error: 'page is out of range'
+			},
+			{
+				status: 404
+			}
+		);
+
+	const searchResults = sliced.filter((picture) => {
 		if (search) {
 			return picture.title.toLowerCase().includes(search.toLowerCase());
 		}
@@ -85,7 +97,7 @@ export async function GET({ url }) {
 	if (order === 'desc') sorted = sorted.reverse();
 
 	return json({
-		last: searchResults.slice(start, end).length < _perPage,
-		data: searchResults.slice(start, end)
+		last: searchResults.length < _perPage,
+		data: searchResults
 	});
 }
