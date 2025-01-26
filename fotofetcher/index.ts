@@ -7,9 +7,7 @@ const amountOfTimes = 10;
 const amountPerX = 10;
 
 for (let i: number = 0; i < amountOfTimes; i++) {
-	const browser = await puppeteer.launch({
-		headless: false
-	});
+	const browser = await puppeteer.launch();
 	console.log('page ', i * amountPerX + 1, 'to', i * amountPerX + amountPerX);
 	await Promise.all(
 		Array.from({ length: amountPerX }, async (_, i2) => {
@@ -17,6 +15,8 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 			await page.goto(
 				`https://www.vera-groningen.nl/photos/page/${i * amountPerX + i2 + 1}?category=marc-de-krosse`
 			);
+
+			console.log('page ' + i * amountPerX + i2 + 1, ' loaded');
 
 			//find all a tags with rel="artworks"
 			const artworks = await page.$$('a[rel="artworks"]');
@@ -37,13 +37,12 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 
 			//loop through all artworks
 			for (const artwork of mappedArtworks) {
-				console.log('artwork ', artwork.title);
-
 				//open page
 				await page.goto(artwork.href);
+				const title = await page.title();
 
 				//if page contains p with text "Pagina niet gevonden"
-				if (await page.$('p:contains("Pagina niet gevonden")').catch(() => null)) {
+				if (title.startsWith('Page not found')) {
 					console.log('pagina niet gevonden');
 					continue;
 				}
@@ -58,8 +57,16 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 					continue;
 				}
 				data.push({
-					title: await page.title(),
+					title,
 					photos: [] as any[]
+				});
+
+				console.log('title', title);
+
+				//scroll to the bottom of the page
+				await page.evaluate(async () => {
+					window.scrollTo(0, document.body.scrollHeight);
+					await new Promise((resolve) => setTimeout(resolve, 2000));
 				});
 
 				//find all a tags with rel="photos"
@@ -78,6 +85,8 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 					});
 				}
 			}
+			//close tab
+			await page.close();
 		})
 	);
 

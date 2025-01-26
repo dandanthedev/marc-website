@@ -23,7 +23,8 @@ for (let i = 0; i < data.length; i++) {
 	mutatableData.title = mutatableData.title.replace(' - Vera', '');
 
 	const attribution = mutatableData.photos[0].title;
-	const date = attribution.split(' - ')[1];
+	const date = attribution.split(' - ')[attribution.split(' - ').length - 2];
+	console.log(date);
 	const day = pad(date.split('/')[0]);
 	const month = pad(date.split('/')[1]);
 	const year = date.split('/')[2];
@@ -57,4 +58,4 @@ const sorted = final
 	.reverse();
 fs.unlinkSync('data-changed.json');
 await new Promise((resolve) => setTimeout(resolve, 1000));
-fs.writeFileSync('data-changed.json', JSON.stringify(sorted, null, 2));
+fs.writeFileSync('data-changed.json', JSON.stringify(sorted));
