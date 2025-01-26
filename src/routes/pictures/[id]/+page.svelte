@@ -49,7 +49,7 @@
 				>
 			</div>
 			<p class="credits">
-				{data.concert.title} - {data.concert.date} - Marc de Krosse
+				{data.concert.title} - {data.concert.date} - {data.concert.authors}
 			</p>
 		</div>
 	</div>

@@ -24,6 +24,7 @@ for (let i = 0; i < data.length; i++) {
 
 	const attribution = mutatableData.photos[0].title;
 	const date = attribution.split(' - ')[attribution.split(' - ').length - 2];
+	const authors = attribution.split(' - ')[attribution.split(' - ').length - 1];
 	console.log(date);
 	const day = pad(date.split('/')[0]);
 	const month = pad(date.split('/')[1]);
@@ -36,6 +37,7 @@ for (let i = 0; i < data.length; i++) {
 		id: uuidv4(),
 		title: mutatableData.title,
 		date: newDate,
+		authors,
 		photos: mutatableData.photos.map((photo) => {
 			return photo.href;
 		})
@@ -56,6 +58,6 @@ const sorted = final
 		return aDate.diff(bDate).milliseconds;
 	})
 	.reverse();
-fs.unlinkSync('data-changed.json');
-await new Promise((resolve) => setTimeout(resolve, 1000));
+
+if (fs.existsSync('data-changed.json')) fs.unlinkSync('data-changed.json');
 fs.writeFileSync('data-changed.json', JSON.stringify(sorted));
