@@ -1,7 +1,7 @@
 import pictures from '$lib/pictures.json';
 import { json } from '@sveltejs/kit';
 import { DateTime } from 'luxon';
-const perPage = 30;
+export const _perPage = 30;
 const sortingMethods = ['date', 'title'];
 
 export async function GET({ url }) {
@@ -54,8 +54,8 @@ export async function GET({ url }) {
 		);
 	}
 
-	const start = (page - 1) * perPage;
-	const end = start + perPage;
+	const start = (page - 1) * _perPage;
+	const end = start + _perPage;
 
 	const searchResults = pictures.filter((picture) => {
 		if (search) {
@@ -85,7 +85,7 @@ export async function GET({ url }) {
 	if (order === 'desc') sorted = sorted.reverse();
 
 	return json({
-		last: searchResults.slice(start, end).length < perPage,
+		last: searchResults.slice(start, end).length < _perPage,
 		data: searchResults.slice(start, end)
 	});
 }

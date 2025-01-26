@@ -1,29 +1,30 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	export let data;
 
 	let concerts: {
 		id: string;
 		title: string;
-		date: string;
+		date: string | null;
 		photos: string[];
-	}[] = [];
-	let currentPage = 1;
+	}[] = data.initialConcerts;
+
+	console.log(concerts);
+	let pageToLoad = 2; //pageToLoad is 2, because page 1 is loaded through ssr
 	let reachedEnd = false;
 	let fetching = false;
-	let loading = true;
 
 	let search = '';
 	let sort = 'date';
 	let order = 'desc';
 
-	let mappedPics: { [key: string]: string } = {};
+	let mappedPics: { [key: string]: string } = data.initialMappedPics;
 	async function fetchNextPage(replace: boolean = false) {
 		if (fetching) return;
 		fetching = true;
 		console.log('fetching next page');
 		const searchParams = new URLSearchParams();
 		if (search !== '') searchParams.set('q', search);
-		searchParams.set('page', currentPage.toString());
+		searchParams.set('page', pageToLoad.toString());
 		searchParams.set('sort', sort);
 		searchParams.set('order', order);
 		const res = await fetch(`/pictures/get?${searchParams}`);
@@ -36,16 +37,11 @@
 
 		if (replace) concerts = data.data;
 		else concerts = [...concerts, ...data.data];
-		currentPage++;
+		pageToLoad++;
 		if (data.last) reachedEnd = true;
 
 		fetching = false;
-		loading = false;
 	}
-
-	onMount(async () => {
-		await fetchNextPage();
-	});
 </script>
 
 <svelte:window
@@ -58,76 +54,66 @@
 	}}
 />
 
-{#if concerts.length === 0 || loading}
-	<h1 class="notification">
-		{#if loading}
-			Laden...
-		{:else if concerts.length === 0}
-			Geen foto's gevonden
-		{/if}
-	</h1>
-{:else}
-	<input
-		type="text"
-		bind:value={search}
-		placeholder="Zoeken"
-		on:input={() => {
-			currentPage = 1;
-			if (search === '') reachedEnd = false;
+<input
+	type="text"
+	bind:value={search}
+	placeholder="Zoeken"
+	on:input={() => {
+		pageToLoad = 1;
+		if (search === '') reachedEnd = false;
+		fetchNextPage(true);
+	}}
+	class="search"
+/>
+<div class="filters">
+	<select
+		bind:value={sort}
+		class="sort"
+		on:change={() => {
+			if (sort === 'title') order = 'asc';
+			if (sort === 'date') order = 'desc';
+			pageToLoad = 1;
+			reachedEnd = false;
 			fetchNextPage(true);
 		}}
-		class="search"
-	/>
-	<div class="filters">
-		<select
-			bind:value={sort}
-			class="sort"
-			on:change={() => {
-				if (sort === 'title') order = 'asc';
-				if (sort === 'date') order = 'desc';
-				currentPage = 1;
-				reachedEnd = false;
-				fetchNextPage(true);
-			}}
-		>
-			<option value="date">Sorteren op datum</option>
-			<option value="title">Sorteren op titel</option>
-		</select>
-		<select
-			bind:value={order}
-			class="sort"
-			on:change={() => {
-				currentPage = 1;
-				reachedEnd = false;
-				fetchNextPage(true);
-			}}
-		>
-			<option value="asc">Oplopend</option>
-			<option value="desc">Aflopend</option>
-		</select>
-	</div>
+	>
+		<option value="date">Sorteren op datum</option>
+		<option value="title">Sorteren op titel</option>
+	</select>
+	<select
+		bind:value={order}
+		class="sort"
+		on:change={() => {
+			pageToLoad = 1;
+			reachedEnd = false;
+			fetchNextPage(true);
+		}}
+	>
+		<option value="asc">Oplopend</option>
+		<option value="desc">Aflopend</option>
+	</select>
+</div>
 
-	<div class="container">
-		{#each concerts as concert}
-			<a class="concert" href="/pictures/{concert.id}">
-				<img
-					src={mappedPics[concert.id]}
-					alt="concert"
-					width="300"
-					height="200"
-					loading="lazy"
-					fetchpriority="high"
-				/>
-				<div class="info">
-					<div class="infoData">
-						<h1>{concert.title}</h1>
-						<p>{concert.date}</p>
-					</div>
+<div class="container">
+	{#each concerts as concert}
+		<a class="concert" href="/pictures/{concert.id}">
+			<img
+				src={mappedPics[concert.id]}
+				alt="concert"
+				width="300"
+				height="200"
+				loading="lazy"
+				fetchpriority="high"
+			/>
+			<div class="info">
+				<div class="infoData">
+					<h1>{concert.title}</h1>
+					<p>{concert.date}</p>
 				</div>
-			</a>
-		{/each}
-	</div>
-{/if}
+			</div>
+		</a>
+	{/each}
+</div>
 
 <style>
 	.notification {
