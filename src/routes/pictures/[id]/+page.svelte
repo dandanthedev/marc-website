@@ -25,27 +25,32 @@
 	>
 		<img src={data.concert.photos[modalI]} alt="concert" loading="eager" id="modal-img" />
 		<div class="controls" id="modal-controls">
-			<button
-				id="modal-controls-button"
-				on:click={() => {
-					if (modalI === null) return;
-					if (modalI === 0) modalI = data.concert.photos.length - 1;
-					else modalI--;
-				}}>{'<'}</button
-			>
+			<div class="actualControls">
+				<button
+					id="modal-controls-button"
+					on:click={() => {
+						if (modalI === null) return;
+						if (modalI === 0) modalI = data.concert.photos.length - 1;
+						else modalI--;
+					}}>{'<'}</button
+				>
 
-			<p>
-				{modalI + 1}/{data.concert.photos.length}
+				<p>
+					{modalI + 1}/{data.concert.photos.length}
+				</p>
+
+				<button
+					id="modal-controls-button"
+					on:click={() => {
+						if (modalI === null) return;
+						if (modalI === data.concert.photos.length - 1) modalI = 0;
+						else modalI++;
+					}}>{'>'}</button
+				>
+			</div>
+			<p class="credits">
+				{data.concert.title} - {data.concert.date} - Marc de Krosse
 			</p>
-
-			<button
-				id="modal-controls-button"
-				on:click={() => {
-					if (modalI === null) return;
-					if (modalI === data.concert.photos.length - 1) modalI = 0;
-					else modalI++;
-				}}>{'>'}</button
-			>
 		</div>
 	</div>
 {/if}
@@ -133,15 +138,26 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
+
+		margin-bottom: 20px;
+	}
+
+	.actualControls {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 20px;
 		gap: 10px;
 	}
 
 	.controls button {
 		font-size: 20px;
 		cursor: pointer;
+	}
+
+	.credits {
+		font-size: 15px;
+		color: white;
+		font-family: Arial, sans-serif;
+		padding: 5px;
 	}
 </style>
