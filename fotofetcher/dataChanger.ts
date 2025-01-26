@@ -1,6 +1,7 @@
 import data from './data.json';
 import fs from 'fs';
 import { DateTime } from 'luxon';
+import { v4 as uuidv4 } from 'uuid';
 
 const final = [];
 
@@ -31,6 +32,7 @@ for (let i = 0; i < data.length; i++) {
 	if (!year) newDate = null;
 
 	final.push({
+		id: uuidv4(),
 		title: mutatableData.title,
 		date: newDate,
 		photos: mutatableData.photos.map((photo) => {
