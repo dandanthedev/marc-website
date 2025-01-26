@@ -30,6 +30,8 @@
 		const res = await fetch(`/pictures/get?${searchParams}`);
 		const data = await res.json();
 
+		if (data.error) return alert(data.error);
+
 		data.data.forEach((concert: { id: string; photos: string[] }) => {
 			if (mappedPics[concert.id]) return;
 			mappedPics[concert.id] = concert.photos[Math.floor(Math.random() * concert.photos.length)];
