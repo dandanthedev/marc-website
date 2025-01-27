@@ -1,5 +1,7 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const data: any[] = [];
 
@@ -16,7 +18,6 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 				`https://www.vera-groningen.nl/photos/page/${i * amountPerX + i2 + 1}?category=marc-de-krosse`
 			);
 
-			console.log('page ' + i * amountPerX + i2 + 1, ' loaded');
 
 			//wait for a tag with rel="artworks" to load
 			const res = await page
@@ -39,7 +40,7 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 			const artworks = await page.$$('a[rel="artworks"]');
 
 			const mappedArtworks = await Promise.all(
-				artworks.map(async (artwork) => {
+				artworks.map(async (artwork: any) => {
 					const href = await artwork.getProperty('href');
 					const actualHref = await href.jsonValue();
 
@@ -73,12 +74,9 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 					console.log('no photos');
 					continue;
 				}
-				data.push({
-					title,
-					photos: [] as any[]
-				});
+			
 
-				console.log('title', title);
+				console.log(title);
 
 				//scroll to the bottom of the page
 				await page.evaluate(async () => {
@@ -89,18 +87,27 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 				//find all a tags with rel="photos"
 				const photos = await page.$$('a[rel="photos"]');
 
+				const finalPics = [];
+
 				//loop through all photos
 				for (const photo of photos) {
 					const href = await photo.getProperty('href');
 					const actualHref = await href.jsonValue();
 					const title = await photo.getProperty('title');
 					const actualTitle = await title.jsonValue();
-
-					data[data.length - 1].photos.push({
+				
+					finalPics.push({
 						title: actualTitle,
 						href: actualHref
 					});
 				}
+
+				data.push({
+					title,
+					photos: finalPics,
+					id: uuidv4()
+				});
+
 			}
 			//close tab
 			await page.close();
