@@ -69,7 +69,7 @@ export async function GET({ url }) {
 			}
 		);
 
-	const searchResults = sliced.filter((picture) => {
+	const searchResults = pictures.filter((picture) => {
 		if (search) {
 			return picture.title.toLowerCase().includes(search.toLowerCase());
 		}
@@ -97,7 +97,7 @@ export async function GET({ url }) {
 	if (order === 'desc') sorted = sorted.reverse();
 
 	return json({
-		last: searchResults.length < _perPage,
-		data: searchResults
+		last: searchResults.slice(start, end).length < _perPage,
+		data: searchResults.slice(start, end)
 	});
 }
