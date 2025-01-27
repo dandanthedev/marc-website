@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+    import { page } from '$app/stores';
 	export let data;
 
 	let concerts: {
@@ -13,9 +15,29 @@
 	let reachedEnd = false;
 	let fetching = false;
 
-	let search = '';
-	let sort = 'date';
-	let order = 'desc';
+	let search =  $page.url.searchParams.get('q') ?? ""; 
+	let sort = $page.url.searchParams.get("sort") ?? 'date';
+	let order = $page.url.searchParams.get("order") ?? 'desc';
+	
+	function setParams({
+		newSearch,
+		newSort,
+		newOrder
+	}: {
+		newSearch: string,
+		newSort: string,
+		newOrder: string
+	}) {
+		const searchParams = new URLSearchParams();
+		searchParams.set("q", newSearch);
+		searchParams.set("sort", newSort);
+		searchParams.set("order", newOrder)
+		goto("?" + searchParams)
+		search = newSearch;
+		sort = newSort;
+		order = newOrder;
+
+	}
 
 	let mappedPics: { [key: string]: string } = data.initialMappedPics;
 	async function fetchNextPage(replace: boolean = false) {
@@ -61,6 +83,11 @@
 	bind:value={search}
 	placeholder="Zoeken"
 	on:input={() => {
+		setParams({
+			newSearch: search,
+			newOrder: order,
+			newSort: sort
+		})
 		pageToLoad = 1;
 		if (search === '') reachedEnd = false;
 		fetchNextPage(true);
@@ -76,6 +103,11 @@
 			if (sort === 'date') order = 'desc';
 			pageToLoad = 1;
 			reachedEnd = false;
+			setParams({
+			newSearch: search,
+			newOrder: order,
+			newSort: sort
+		})
 			fetchNextPage(true);
 		}}
 	>
@@ -88,6 +120,11 @@
 		on:change={() => {
 			pageToLoad = 1;
 			reachedEnd = false;
+			setParams({
+			newSearch: search,
+			newOrder: order,
+			newSort: sort
+		})
 			fetchNextPage(true);
 		}}
 	>
