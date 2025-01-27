@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
-import { v4 as uuidv4 } from 'uuid';
 
 
 const data: any[] = [];
@@ -104,9 +103,7 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 
 				data.push({
 					title,
-					photos: finalPics,
-					id: uuidv4()
-				});
+					photos: finalPics				});
 
 			}
 			//close tab
@@ -115,5 +112,9 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 	);
 
 	await browser.close();
+	fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+	fs.writeFileSync('status.txt', `${i * amountPerX + 1}/${amountOfTimes}`);
+
 }
-fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+
+fs.unlinkSync('status.txt');
