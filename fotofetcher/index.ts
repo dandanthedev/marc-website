@@ -18,6 +18,23 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 
 			console.log('page ' + i * amountPerX + i2 + 1, ' loaded');
 
+			//wait for a tag with rel="artworks" to load
+			const res = await page
+				.waitForSelector('a[rel="artworks"]')
+				.catch(() => null)
+				.then(() => true);
+
+			if (!res) {
+				return console.log('no artworks');
+
+			}
+
+			///scroll to the bottom of the page
+			await page.evaluate(async () => {
+				window.scrollTo(0, document.body.scrollHeight);
+				await new Promise((resolve) => setTimeout(resolve, 1000));
+			});
+
 			//find all a tags with rel="artworks"
 			const artworks = await page.$$('a[rel="artworks"]');
 
@@ -66,7 +83,7 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 				//scroll to the bottom of the page
 				await page.evaluate(async () => {
 					window.scrollTo(0, document.body.scrollHeight);
-					await new Promise((resolve) => setTimeout(resolve, 2000));
+					await new Promise((resolve) => setTimeout(resolve, 1000));
 				});
 
 				//find all a tags with rel="photos"
