@@ -3,27 +3,29 @@
     import { page } from '$app/stores';
 	import { lang } from '$lib/lang.js';
 	import { useQueryParams } from "$lib/params"; 
-	export let data;
+	import { onMount } from 'svelte';
 
 	let concerts: {
 		id: string;
 		title: string;
 		date: string | null;
 		photos: string[];
-	}[] = data.initialConcerts;
+	}[] = [];
 
 	console.log(concerts);
-	let pageToLoad = 2; //pageToLoad is 2, because page 1 is loaded through ssr
+	let pageToLoad = 1; 
 	let reachedEnd = false;
-	let fetching = false;
 
 	const [params, helpers] = useQueryParams($page.url); // You must pass the URL
 	
 
-	let mappedPics: { [key: string]: string } = data.initialMappedPics;
+	let mappedPics: { [key: string]: string } ={};
+
+	let i = 0;
+
 	async function fetchNextPage(replace: boolean = false) {
-		if (fetching) return;
-		fetching = true;
+		i++;
+		const cachedI = parseInt(`${i}`);
 		console.log('fetching next page');
 		const searchParams = new URLSearchParams();
 		if (params.q !== '') searchParams.set('q', params.q);
@@ -40,13 +42,19 @@
 			mappedPics[concert.id] = concert.photos[Math.floor(Math.random() * concert.photos.length)];
 		});
 
+		console.log(i, cachedI);
+		if(i !== cachedI) return;
+
 		if (replace) concerts = data.data;
 		else concerts = [...concerts, ...data.data];
 		pageToLoad++;
 		if (data.last) reachedEnd = true;
 
-		fetching = false;
 	}
+
+	onMount(() => {
+		fetchNextPage(true);
+	})
 </script>
 
 <svelte:window
@@ -63,10 +71,10 @@
 	type="text"
 	bind:value={params.q}
 	placeholder={$lang.sort.search}
-	on:input={(e) => {
+	on:input={ async() => {
+		await new Promise((r) => setTimeout(r, 1));
 		pageToLoad = 1;
-		const value = (e.target as HTMLInputElement).value;
-		if (value === '') reachedEnd = false;
+		if (params.q === '') reachedEnd = false;
 		fetchNextPage(true);
 	}}
 	class="search"
