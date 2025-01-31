@@ -28,6 +28,10 @@
 </footer>
 
 <style>
+	footer{
+		z-index: 1000;
+	}
+
 	.smallCredit {
 		display: none;
 	}

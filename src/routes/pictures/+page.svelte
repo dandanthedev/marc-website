@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
     import { page } from '$app/stores';
+	import { lang } from '$lib/lang.js';
 	export let data;
 
 	let concerts: {
@@ -81,7 +82,7 @@
 <input
 	type="text"
 	bind:value={search}
-	placeholder="Zoeken"
+	placeholder={$lang.sort.search}
 	on:input={() => {
 		setParams({
 			newSearch: search,
@@ -111,8 +112,8 @@
 			fetchNextPage(true);
 		}}
 	>
-		<option value="date">Sorteren op datum</option>
-		<option value="title">Sorteren op titel</option>
+		<option value="date">{$lang.sort.date}</option>
+		<option value="title">{$lang.sort.title}</option>
 	</select>
 	<select
 		bind:value={order}
@@ -128,8 +129,8 @@
 			fetchNextPage(true);
 		}}
 	>
-		<option value="asc">Oplopend</option>
-		<option value="desc">Aflopend</option>
+		<option value="asc">{$lang.sort.ascending}</option>
+		<option value="desc">{$lang.sort.descending}</option>	
 	</select>
 </div>
 

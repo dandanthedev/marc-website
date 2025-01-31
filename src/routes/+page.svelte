@@ -13,7 +13,7 @@
 />
 
 <div class="twoItems">
-	<div class="item">
+	<div class="item homePictureContainer">
 		<enhanced:img src={homeImage} alt="Thuisfoto" class="homePicture" />
 	</div>
 	<h1 class="item welcome">{@html $lang.welcome}</h1>
@@ -85,5 +85,22 @@
 
 	.homePicture {
 		height: 690px;
+	}
+
+	@media (max-width: 1070px){
+		.twoItems{
+			flex-direction: column;
+			margin-bottom:50px;
+		}
+		.homePicture{
+			display: none;
+		}
+	
+
+	}
+	@media (max-width: 920px){
+		h1{
+			font-size: 30px;
+		}
 	}
 </style>

@@ -8,7 +8,9 @@
 	onMount(() => {
 		const currentLang = localStorage.getItem('lang');
 		if (currentLang) {
-			$lang = langs.find((lang) => lang.lang === currentLang);
+			const found = langs.find((lang) => lang.lang === currentLang);
+			if (found) $lang = found;
+			else localStorage.removeItem('lang');
 		}
 	});
 </script>

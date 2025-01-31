@@ -54,6 +54,15 @@ export const langs = [
 
 		footer: {
 			school: 'Schoolopdracht'
+		},
+
+		sort: {
+			search: 'Zoeken',
+			prefix: "Sorteer op ",
+			title: 'Titel',
+			date: 'Datum',
+			ascending: 'Oplopend',
+			descending: 'Aflopend'
 		}
 	},
 	{
@@ -108,6 +117,15 @@ did not want to."`
 
 		footer: {
 			school: 'School assignment'
+		},
+
+		sort: {
+			search: 'Search',
+			prefix: "Sort by ",
+			title: 'Title',
+			date: 'Date',
+			ascending: 'Ascending',
+			descending: 'Descending'
 		}
 	},
 	{
@@ -159,6 +177,15 @@ did not want to."`
 
 		footer: {
 			school: 'Koulutehtävä'
+		},
+
+		sort: {
+			search: 'Hae',
+			prefix: "Sorteeri ",
+			title: 'Nimi',
+			date: 'Päivämäärä',
+			ascending: 'Nouseva',
+			descending: 'Laskeva'
 		}
 	}
 ];

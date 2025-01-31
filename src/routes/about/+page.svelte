@@ -62,6 +62,21 @@
 
 	h1 {
 		font-size: 35px;
-		line-height: 0.1;
+		padding-bottom: 0px !important;
+		margin-bottom: 0px !important;
+	}
+
+	p {
+		margin-top: 8px;
+	}
+
+	@media (max-width: 1100px) {
+		.image{
+			display: none;
+		}
+		.text{
+			padding-left: 0px;
+			width: 100%;
+		}
 	}
 </style>
