@@ -6,13 +6,13 @@
 	import { fade } from 'svelte/transition';
 	import logo from '$lib/assets/headerlogo.gif';
 
-
 	let mobileMenuOpen = $state(false);
 
 	const pages = $derived([
 		{
 			url: '/',
-			title: $lang.pages.home
+			title: $lang.pages.home,
+			disableSubPages: true
 		},
 		{
 			url: '/pictures',
@@ -58,12 +58,13 @@
 
 {#if mobileMenuOpen}
 	<div class="mobileMenu" transition:fade={{ duration: 200 }}>
-		
 		<div class="menu">
 			{#each pages as navigationPage}
 				<a
 					href={navigationPage.url}
-					class:selected={$page.url.pathname === navigationPage.url}
+					class:selected={navigationPage.disableSubPages
+						? $page.url.pathname === navigationPage.url
+						: $page.url.pathname.startsWith(navigationPage.url)}
 					onclick={() => {
 						mobileMenuOpen = false;
 					}}>{navigationPage.title}</a
@@ -78,11 +79,11 @@
 <header>
 	<div class="logo">
 		<a href="/">
-		<img src={logo} alt="vera logo" class="vera" />
-	</a>
+			<img src={logo} alt="vera logo" class="vera" />
+		</a>
 		<div class="name">
 			<h1>Marc de Krosse</h1>
-		
+
 			<p class="job">{$lang.concertPhotographer}</p>
 		</div>
 
@@ -98,8 +99,11 @@
 
 		<div class="row navigation">
 			{#each pages as navigationPage}
-				<a href={navigationPage.url} class:selected={$page.url.pathname === navigationPage.url}
-					>{navigationPage.title}</a
+				<a
+					href={navigationPage.url}
+					class:selected={navigationPage.disableSubPages
+						? $page.url.pathname === navigationPage.url
+						: $page.url.pathname.startsWith(navigationPage.url)}>{navigationPage.title}</a
 				>
 			{/each}
 		</div>
@@ -128,7 +132,7 @@
 		height: 100px;
 		position: absolute;
 		z-index: 100;
-		border-bottom: 2px solid #F79238;
+		border-bottom: 2px solid #f79238;
 	}
 
 	.headerSpacer {
@@ -196,11 +200,11 @@
 	}
 
 	.navigation a:hover {
-		color: #F79238;
+		color: #f79238;
 	}
 
 	.navigation a.selected {
-		color: #F79238;
+		color: #f79238;
 	}
 
 	.name h1 {
@@ -210,7 +214,6 @@
 	.mobileButton {
 		display: none;
 		text-align: right;
-
 	}
 
 	.mobileButton button {
@@ -238,8 +241,6 @@
 		.hideOnMobile {
 			display: none;
 		}
-
-
 	}
 
 	@media (max-width: 410px) {
