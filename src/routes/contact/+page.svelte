@@ -34,7 +34,7 @@
 	<div class="item text">
 		<h1>{$lang.contact.title}</h1>
 	
-		<p>
+		<p class="contactInfo">
 			{$lang.contact.email}: marcdekrosse@heetmail.kom
 			<br />
 		     {$lang.contact.phone}: +31 6 12345678
@@ -56,6 +56,10 @@
 </div>
 
 <style>
+	.contactInfo {
+		font-size: 24px;
+	}
+
 	.spaceBetween {
 		display: flex;
 		justify-content: space-between;
