@@ -59,8 +59,8 @@ export const langs = [
 		sort: {
 			search: 'Zoeken',
 			prefix: "Sorteer op ",
-			title: 'Titel',
-			date: 'Datum',
+			title: 'titel',
+			date: 'datum',
 			ascending: 'Oplopend',
 			descending: 'Aflopend'
 		}
@@ -122,8 +122,8 @@ did not want to."`
 		sort: {
 			search: 'Search',
 			prefix: "Sort by ",
-			title: 'Title',
-			date: 'Date',
+			title: 'title',
+			date: 'date',
 			ascending: 'Ascending',
 			descending: 'Descending'
 		}
@@ -182,8 +182,8 @@ did not want to."`
 		sort: {
 			search: 'Hae',
 			prefix: "Sorteeri ",
-			title: 'Nimi',
-			date: 'Päivämäärä',
+			title: 'nimi',
+			date: 'päivämäärä',
 			ascending: 'Nouseva',
 			descending: 'Laskeva'
 		}

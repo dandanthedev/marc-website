@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
     import { page } from '$app/stores';
 	import { lang } from '$lib/lang.js';
+	import { useQueryParams } from "$lib/params"; 
 	export let data;
 
 	let concerts: {
@@ -16,29 +17,8 @@
 	let reachedEnd = false;
 	let fetching = false;
 
-	let search =  $page.url.searchParams.get('q') ?? ""; 
-	let sort = $page.url.searchParams.get("sort") ?? 'date';
-	let order = $page.url.searchParams.get("order") ?? 'desc';
+	const [params, helpers] = useQueryParams($page.url); // You must pass the URL
 	
-	function setParams({
-		newSearch,
-		newSort,
-		newOrder
-	}: {
-		newSearch: string,
-		newSort: string,
-		newOrder: string
-	}) {
-		const searchParams = new URLSearchParams();
-		searchParams.set("q", newSearch);
-		searchParams.set("sort", newSort);
-		searchParams.set("order", newOrder)
-		goto("?" + searchParams)
-		search = newSearch;
-		sort = newSort;
-		order = newOrder;
-
-	}
 
 	let mappedPics: { [key: string]: string } = data.initialMappedPics;
 	async function fetchNextPage(replace: boolean = false) {
@@ -46,10 +26,10 @@
 		fetching = true;
 		console.log('fetching next page');
 		const searchParams = new URLSearchParams();
-		if (search !== '') searchParams.set('q', search);
+		if (params.q !== '') searchParams.set('q', params.q);
 		searchParams.set('page', pageToLoad.toString());
-		searchParams.set('sort', sort);
-		searchParams.set('order', order);
+		searchParams.set('sort', params.sort);
+		searchParams.set('order', params.order);
 		const res = await fetch(`/pictures/get?${searchParams}`);
 		const data = await res.json();
 
@@ -81,51 +61,41 @@
 
 <input
 	type="text"
-	bind:value={search}
+	bind:value={params.q}
 	placeholder={$lang.sort.search}
-	on:input={() => {
-		setParams({
-			newSearch: search,
-			newOrder: order,
-			newSort: sort
-		})
+	on:input={(e) => {
 		pageToLoad = 1;
-		if (search === '') reachedEnd = false;
+		const value = (e.target as HTMLInputElement).value;
+		if (value === '') reachedEnd = false;
 		fetchNextPage(true);
 	}}
 	class="search"
 />
 <div class="filters">
 	<select
-		bind:value={sort}
+		bind:value={params.sort}
 		class="sort"
-		on:change={() => {
-			if (sort === 'title') order = 'asc';
-			if (sort === 'date') order = 'desc';
+		on:change={(e) => {
+			const value = (e.target as HTMLSelectElement).value;
+			//@ts-ignore miss ooit fiksen
+			if (value === 'title') params.order = 'asc';
+			//@ts-ignore miss ooit fiksen
+			if (value === 'date') params.order = 'desc';
 			pageToLoad = 1;
 			reachedEnd = false;
-			setParams({
-			newSearch: search,
-			newOrder: order,
-			newSort: sort
-		})
+			
 			fetchNextPage(true);
 		}}
 	>
-		<option value="date">{$lang.sort.date}</option>
-		<option value="title">{$lang.sort.title}</option>
+		<option value="date">{$lang.sort.prefix}{$lang.sort.date}</option>
+		<option value="title">{$lang.sort.prefix} {$lang.sort.title}</option>
 	</select>
 	<select
-		bind:value={order}
+		bind:value={params.order}
 		class="sort"
 		on:change={() => {
 			pageToLoad = 1;
 			reachedEnd = false;
-			setParams({
-			newSearch: search,
-			newOrder: order,
-			newSort: sort
-		})
 			fetchNextPage(true);
 		}}
 	>
