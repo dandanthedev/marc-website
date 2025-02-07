@@ -37,6 +37,7 @@
 		"@types/luxon": "^3.4.2",
 		"cuid": "^3.0.0",
 		"luxon": "^3.5.0",
+		"sharp": "^0.33.5",
 		"svelte-fa": "^4.0.3",
 		"svelte-query-params": "^0.2.4",
 		"svelte-seo": "^1.6.1",
