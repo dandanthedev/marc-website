@@ -39,7 +39,10 @@ for (let i = 0; i < data.length; i++) {
 		date: newDate,
 		authors,
 		photos: mutatableData.photos.map((photo) => {
-			return photo.href;
+			return {
+				id: uuidv4(),
+				url: photo.href,
+			}
 		})
 	});
 }

@@ -23,7 +23,7 @@
 		}}
 		transition:fade={{ duration: 200 }}
 	>
-		<img src={data.concert.photos[modalI]} alt="concert" loading="eager" id="modal-img" />
+		<img src={data.concert.photos[modalI].url} alt="concert" loading="eager" id="modal-img" />
 		<div class="controls" id="modal-controls">
 			<div class="actualControls">
 				<button
@@ -47,6 +47,8 @@
 						else modalI++;
 					}}>{'>'}</button
 				>
+
+				<a href="/merch?concert={data.concert.id}&pic={data.concert.photos[modalI].id}">Kopen</a>
 			</div>
 			<p class="credits">
 				{data.concert.title} - {data.concert.date} - © {data.concert.authors}
@@ -63,9 +65,9 @@
 
 	<div class="container">
 		{#each data.concert.photos as photo, i}
-			<button on:click={() => (modalI = i)}>
+		<button on:click={() => (modalI = i)}>
 				<img
-					src={photo}
+					src={photo.url}
 					alt="concert"
 					width="300"
 					height="200"

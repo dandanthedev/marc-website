@@ -94,7 +94,7 @@ for (let i: number = 0; i < amountOfTimes; i++) {
 					const actualHref = await href.jsonValue();
 					const title = await photo.getProperty('title');
 					const actualTitle = await title.jsonValue();
-				
+	
 					finalPics.push({
 						title: actualTitle,
 						href: actualHref

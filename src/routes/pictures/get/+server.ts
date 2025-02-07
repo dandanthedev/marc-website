@@ -96,8 +96,17 @@ export async function GET({ url }) {
 
 	if (order === 'desc') sorted = sorted.reverse();
 
+	const mapped = sorted.map((concert) => {
+		return {
+			id: concert.id,
+			title: concert.title,
+			date: concert.date,
+			cover: concert.photos[Math.floor(Math.random() * concert.photos.length)].url
+		};
+	});
+
 	return json({
-		last: searchResults.slice(start, end).length < _perPage,
-		data: searchResults.slice(start, end)
+		last: mapped.slice(start, end).length < _perPage,
+		data: mapped.slice(start, end)
 	});
 }

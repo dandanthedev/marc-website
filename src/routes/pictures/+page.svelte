@@ -19,8 +19,6 @@
 	const [params, helpers] = useQueryParams($page.url); // You must pass the URL
 	
 
-	let mappedPics: { [key: string]: string } ={};
-
 	let i = 0;
 
 	async function fetchNextPage(replace: boolean = false) {
@@ -36,12 +34,6 @@
 		const data = await res.json();
 
 		if (data.error) return alert(data.error);
-
-		data.data.forEach((concert: { id: string; photos: string[] }) => {
-			if (mappedPics[concert.id]) return;
-			mappedPics[concert.id] = concert.photos[Math.floor(Math.random() * concert.photos.length)];
-		});
-
 		console.log(i, cachedI);
 		if(i !== cachedI) return;
 
@@ -116,7 +108,7 @@
 	{#each concerts as concert}
 		<a class="concert" href="/pictures/{concert.id}">
 			<img
-				src={mappedPics[concert.id]}
+				src={concert.cover}
 				alt="concert"
 				width="300"
 				height="200"
@@ -134,11 +126,7 @@
 </div>
 
 <style>
-	.notification {
-		text-align: center;
-		font-size: 30px;
-		color: white;
-	}
+	
 
 	.container {
 		display: flex;
