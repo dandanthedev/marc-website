@@ -50,6 +50,15 @@ import {page} from '$app/stores';
     <option>L</option>
     <option>XL</option>
     <option>XXL</option>
+    <option>XXXL</option>
+    <option>XXXXL</option>
+    <option>XXXXXL</option>
+    <option>XXXXXXL</option>
+    <option>XXXXXXXL</option>
+    <option>XXXXXXXXL</option>
+    <option>XXXXXXXXXL</option>
+    <option>XXXXXXXXXXL</option>
+    
 </select>
 {/if}</div>
 
