@@ -16,6 +16,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 2rem;
         margin: 2rem;
        margin-top: 50px;
