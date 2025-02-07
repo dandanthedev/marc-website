@@ -5,7 +5,7 @@
 <div class="container">
     {#each publications as publication}
     <a class="publication" href="/publications/{publication.id}">
-        <img src={publication.pictures[Math.floor(Math.random() * publication.pictures.length)].url} alt="publication" class="picture" />
+        <img src={publication.pictures[Math.floor(Math.random() * publication.pictures.length)]} alt="publication" class="picture" />
         <h2 class="title">{publication.title}</h2>
     </a>
     {/each}

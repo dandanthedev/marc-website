@@ -8,7 +8,7 @@
     <h1>{data.publication.title}</h1>
     <div class="container">
         {#each data.publication.pictures as picture}
-        <img src={picture.url} alt="picture" class="picture" />
+        <img src={picture} alt="picture" class="picture" />
         {/each}
     </div>
 {/if}
