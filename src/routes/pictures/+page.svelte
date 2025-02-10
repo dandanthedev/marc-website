@@ -141,6 +141,12 @@
 		position: relative;
 		width: 300px;
 		height: 200px;
+
+	    transition: all 0.3s ease-in-out;
+
+	}
+	.concert:hover{
+		transform: scale(1.1);
 	}
 
 	.info {

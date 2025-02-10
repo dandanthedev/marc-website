@@ -128,66 +128,7 @@ did not want to."`
 			descending: 'Descending'
 		}
 	},
-	{
-		lang: 'Suomi',
-		welcome:
-			'Tervetuloa concerti valokuvaaja Marc de Krossein sivulle!<br/> Tällä sivulla voit nähdä ja ostaa hänen upeita kuviaan!',
-		concertPhotographer: 'Concert Photographer',
-		pages: {
-			home: 'Koti',
-			about: 'Tietoja',
-			contact: 'Yhteystiedot',
-			pictures: 'Kuvat',
-			publications: 'Julkaisut'
-		},
 
-		contact: {
-			title: 'Ota yhteyttä Marcille',
-			name: 'Nimi',
-			email: 'Sähköposti',
-			message: 'Viesti',
-			send: 'Lähetä',
-			phone: 'Puhelinnumero',
-			address: 'Osoite'
-		},
-
-		notFound: {
-			title: 'Sivua ei löydy :(',
-			message: 'Etsimääsi sivua ei ole vielä olemassa. Yritä uudelleen tai mene etusivulle.'
-		},
-
-		about: {
-			first: `VERA on pop-kulttuurin keskus Groningenissa, jota kuvataan myös: Club for the
-			International Pop Underground. Olemme olleet aina keskittyneen opiskelijoiden joukkueessa, ja
-			tämä nimi on myös nimi Vera Et Recti Amici (Ware En Oprechte Vrienden). Nyt on se
-			kokonaan concertipaikka. Useat kappaleet, jotka myöhemmin jopa maailmanlaajuisesti voisivat
-			olla, ovat näiden kanssa: U2, Joy Division, Simple Minds, Nick Cave, Henry Rollins, Sonic
-			Youth, Soundgarden, Slayer, Nirvana, Pearl Jam, Weezer, The White Stripes, At The Drive-in,
-			Mogwai, Franz Ferdinand, Editors, Interpol, Elbow, The Hives, Triggerfinger, Nothing But
-			Thieves, Dua Lipa ja monia muuta.`,
-			secondAnnouncement: 'Metsänä bandiin!',
-			second: `Vera on ollut vuosien 2001 alkaen foto-ryhmä. Vapaaehtoiset ottavat kuvia kaikki
-			concertit. Marc de Krosse on ollut alkuun. "En ole mielestäni mielessäni mitään
-			mitenkään. Mitään mitenkään. Mitään mitenkään." "Profiilin fotografoinnin on paljon	konsertteja
-			suorittaa, kunnes ensimmäiset kolme kappaletta. Olemme jatkaneet tämän, ja sinä olet myös
-			syvälliset päänsä loppuun. Useampi kuin alkuun." Olemme aina varmistamaan, että otamme
-			kaikki tarpeelliset valokuvat. Kun kahdeksan vuotta on ollut, olen ollut yksi kerta, joka
-			ei halunnut."`
-		},
-
-		footer: {
-			school: 'Koulutehtävä'
-		},
-
-		sort: {
-			search: 'Hae',
-			prefix: "Sorteeri ",
-			title: 'nimi',
-			date: 'päivämäärä',
-			ascending: 'Nouseva',
-			descending: 'Laskeva'
-		}
-	}
 ];
 
 export const lang = writable(langs[0]);
