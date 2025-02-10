@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 
+	let modalI: number | null = null;
+
 	export let data;
 
-	let modalI: number | null = null;
 </script>
 
 {#if modalI !== null && data.concert}
@@ -25,6 +26,7 @@
 	>
 		<img src={data.concert.photos[modalI].url} alt="concert" loading="eager" id="modal-img" />
 		<div class="controls" id="modal-controls">
+			
 			<div class="actualControls">
 				<button
 					id="modal-controls-button"
@@ -44,11 +46,15 @@
 					on:click={() => {
 						if (modalI === null) return;
 						if (modalI === data.concert.photos.length - 1) modalI = 0;
-						else modalI++;
+						else modalI++; 
 					}}>{'>'}</button
 				>
 
-				<a href="/merch?concert={data.concert.id}&pic={data.concert.photos[modalI].id}">Kopen</a>
+				<a href="/merch?concert={data.concert.id}&pic={data.concert.photos[modalI].id}"
+					class="buy"
+				>Kopen</a>
+		
+			
 			</div>
 			<p class="credits">
 				{data.concert.title} - {data.concert.date} - © {data.concert.authors}
@@ -137,7 +143,7 @@
 
 	.controls {
 		position: fixed;
-		bottom: 0;
+		bottom: 50px;
 		left: 0;
 		right: 0;
 
@@ -161,5 +167,12 @@
 		color: white;
 		font-family: Arial, sans-serif;
 		padding: 5px;
+		padding-top: 0;
+		margin-top: 0;
+	}
+
+	.buy{
+		color: #fff;
+		font-weight: bold;
 	}
 </style>

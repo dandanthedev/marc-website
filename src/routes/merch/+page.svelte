@@ -41,9 +41,14 @@ import {page} from '$app/stores';
     {/each}
 </select>
 
-{#if design === 'tshirt' || design === 'hoodie'}
+{#if design === 'tshirt' || design === 'hoodie' || design === "poster"}
 <select>
     <option value={null} disabled selected>Kies een maat</option>
+    {#if design === "poster"}
+    <option>40x60</option>
+    <option>50x70</option>
+    <option>50x50</option>
+    {:else}
     <option>XS</option>
     <option>S</option>
     <option>M</option>
@@ -58,7 +63,7 @@ import {page} from '$app/stores';
     <option>XXXXXXXXL</option>
     <option>XXXXXXXXXL</option>
     <option>XXXXXXXXXXL</option>
-    
+    {/if}
 </select>
 {/if}</div>
 
@@ -73,9 +78,20 @@ import {page} from '$app/stores';
     <img src="/store/tshirt.png" alt="tshirt" class="tshirtBg" />
 </div>
 {/if}
+{#if design ==="hoodie"}
+<div class="tshirt">
+    <img src={picture.url}  class="tshirtImage hoodieImg" alt="teeImage" />
+    <img src="/store/hoodie.png" alt="tshirt" class="tshirtBg" />
+</div>
+{/if}
+{#if design ==="bag"}
+<div class="tshirt">
+    <img src={picture.url}  class="tshirtImage bagImg" alt="teeImage" />
+    <img src="/store/bag.png" alt="tshirt" class="tshirtBg" />
+</div>
+{/if}
 {/if}
 </div>
-
 <style>
     .productDisplay {
         display: flex;
@@ -127,6 +143,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         bottom: 0;
         width: 500px;
         height: 500px;
+
     }
     
     .tshirtImage{
@@ -137,5 +154,19 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         bottom: 0;
         z-index: 10;
         width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    .hoodieImg {
+        margin-top: -10px;
+        height: 150px;
+    }
+
+    .bagImg{
+        width: 300px;
+        height: 200px;
+        margin-left: -40px;
+        margin-top: 80px;
     }
 </style>

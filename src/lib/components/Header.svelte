@@ -27,10 +27,6 @@
 			title: $lang.pages.about
 		},
 		{
-			url: '/merch',
-			title: 'Merch'
-		},
-		{
 			url: '/contact',
 			title: $lang.pages.contact
 		}
