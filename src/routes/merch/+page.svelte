@@ -47,7 +47,6 @@ import {page} from '$app/stores';
     {#if design === "poster"}
     <option>40x60</option>
     <option>50x70</option>
-    <option>50x50</option>
     {:else}
     <option>XS</option>
     <option>S</option>
