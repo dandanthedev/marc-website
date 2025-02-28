@@ -16,6 +16,5 @@
 </script>
 
 <Header />
-
 <slot />
 <Footer />

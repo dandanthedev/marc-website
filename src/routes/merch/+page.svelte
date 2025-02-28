@@ -30,9 +30,14 @@ import {page} from '$app/stores';
         }
     ];
     let design: string | null = null;
+    let size: string | null = null;
+    let bought = false;
 
 </script>
 
+{#if bought}
+<div class="bought">Gekocht!</div>
+{/if}
 <div class="orderOptions">
 <select bind:value={design} class="design">
     <option value={null} disabled selected>Kies een design</option>
@@ -42,7 +47,9 @@ import {page} from '$app/stores';
 </select>
 
 {#if design === 'tshirt' || design === 'hoodie' || design === "poster"}
-<select>
+<select
+    bind:value={size}
+>
     <option value={null} disabled selected>Kies een maat</option>
     {#if design === "poster"}
     <option>40x60</option>
@@ -65,7 +72,15 @@ import {page} from '$app/stores';
     {/if}
 </select>
 {/if}</div>
+<div class="aantal">
 
+    <select name="Aantal" id="">
+    <option value={null} >Kies een aantal</option>
+    {#each [1,2,3,4,5,6,7,8,9,10] as amount}
+    <option>{amount}</option>
+    {/each}
+</select>
+</div>
 <div class="productDisplay">
 {#if picture}
 {#if design === 'poster'}
@@ -90,8 +105,27 @@ import {page} from '$app/stores';
 </div>
 {/if}
 {/if}
+
 </div>
+{#if design && size}
+<button class="buyButton"
+    on:click={() => {
+        bought = true;
+    }}
+>Bestellen</button>
+{/if}
+
 <style>
+
+ 
+    .buyButton{
+        padding: 10px;
+        font-size: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+
     .productDisplay {
         display: flex;
         flex-direction: row;
@@ -133,6 +167,15 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       
       
     }
+    
+    .aantal{
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        padding-left: 45.85%;
+
+        
+    }
 
     .tshirtBg{
         position: absolute;
@@ -167,5 +210,19 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         height: 200px;
         margin-left: -40px;
         margin-top: 80px;
+    }
+
+    .bought{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        font-size: 40px;
+        z-index: 10000;
+        display:flex;
+    align-items: center;
+    justify-content: center;
     }
 </style>

@@ -7,7 +7,8 @@ const validators = {
   order: z.enum(["asc", "desc"]).default("desc"),
   concert: z.string().uuid().optional(),
   pic: z.string().uuid().optional(),
-  modalI: z.string().nullable().default(null)
+  modalI: z.string().nullable().default(null),
+  buy: z.enum(["true"]).optional()
 };
 
 // Create the hook

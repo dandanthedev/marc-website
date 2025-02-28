@@ -59,7 +59,10 @@
 	}}
 />
 
-<input
+{#if params.buy}
+	<h1>Kies een foto om te bestellen!</h1>
+{/if}
+	<input
 	type="text"
 	bind:value={params.q}
 	placeholder={$lang.sort.search}
@@ -106,7 +109,8 @@
 
 <div class="container">
 	{#each concerts as concert}
-		<a class="concert" href="/pictures/{concert.id}">
+
+		<a class="concert" href={params.buy ? `/pictures/${concert.id}?buy=true` : `/pictures/${concert.id}`}>
 			<img
 				src={concert.cover}
 				alt="concert"
@@ -126,7 +130,12 @@
 </div>
 
 <style>
-	
+		h1 {
+		text-align: center;
+		font-size: 30px;
+		color: white;
+	}
+
 
 	.container {
 		display: flex;

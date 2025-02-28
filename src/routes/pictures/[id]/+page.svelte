@@ -1,11 +1,19 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import { useQueryParams } from "$lib/params"; 
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 
 	let modalI: number | null = null;
+	const [params, helpers] = useQueryParams($page.url); // You must pass the URL
 
 	export let data;
 
 </script>
+
+{#if params.buy}
+	<h1>Kies een foto om te bestellen!</h1>
+{/if}
 
 {#if modalI !== null && data.concert}
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -71,7 +79,10 @@
 
 	<div class="container">
 		{#each data.concert.photos as photo, i}
-		<button on:click={() => (modalI = i)}>
+		<button on:click={() => {
+			if(params.buy) goto("/merch?concert=" + data.concert.id + "&pic=" + photo.id)
+			else modelI = i
+		}}>
 				<img
 					src={photo.url}
 					alt="concert"

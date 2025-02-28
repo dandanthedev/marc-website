@@ -2,7 +2,7 @@
 	import { lang, langs } from '$lib/lang';
 	import { page } from '$app/stores';
 	import Fa from 'svelte-fa';
-	import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
+	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import { fade } from 'svelte/transition';
 	import logo from '$lib/assets/headerlogo.gif';
 
@@ -25,6 +25,10 @@
 		{
 			url: '/about',
 			title: $lang.pages.about
+		},
+		{
+			url: "/pictures?buy=true",
+			title: $lang.pages.buy
 		},
 		{
 			url: '/contact',

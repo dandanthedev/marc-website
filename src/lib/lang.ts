@@ -12,6 +12,7 @@ export const langs = [
 			about: 'Over',
 			contact: 'Contact',
 			pictures: "Concertfoto's",
+			buy: "Kopen",
 			publications: 'Publicaties'
 		},
 
@@ -75,6 +76,7 @@ export const langs = [
 			about: 'About',
 			contact: 'Contact',
 			pictures: 'Pictures',
+			buy: "Buy",
 			publications: 'Publications'
 		},
 
