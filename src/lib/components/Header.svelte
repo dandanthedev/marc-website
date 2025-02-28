@@ -143,8 +143,9 @@
 
 	.lang {
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		gap: 10px;
-		margin-right: 20px;
 	}
 	button {
 		background-color: transparent;
