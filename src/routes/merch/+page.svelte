@@ -71,10 +71,9 @@ import {page} from '$app/stores';
     <option>XXXXXXXXXXL</option>
     {/if}
 </select>
-{/if}</div>
-<div class="aantal">
+{/if}
 
-    <select name="Aantal" id="">
+<select name="Aantal" id="">
     <option value={null} >Kies een aantal</option>
     {#each [1,2,3,4,5,6,7,8,9,10] as amount}
     <option>{amount}</option>
@@ -168,14 +167,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       
     }
     
-    .aantal{
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        padding-left: 45.85%;
-
-        
-    }
+ 
 
     .tshirtBg{
         position: absolute;
