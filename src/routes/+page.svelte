@@ -92,10 +92,6 @@
 			flex-direction: column;
 			margin-bottom:50px;
 		}
-		.homePicture{
-			display: none;
-		}
-	
 
 	}
 	@media (max-width: 920px){

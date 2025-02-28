@@ -28,7 +28,7 @@
 	.container {
 		display: flex;
 		width: 90%;
-		height: 100%;
+		min-height: 100%;
 		margin: 0;
 		margin-left: auto;
 		margin-right: auto;
@@ -71,12 +71,15 @@
 	}
 
 	@media (max-width: 1100px) {
-		.image{
-			display: none;
+		.container{
+			flex-direction: column;
+			height: unset;
 		}
+
 		.text{
 			padding-left: 0px;
 			width: 100%;
 		}
+
 	}
 </style>
