@@ -81,7 +81,9 @@
 		{#each data.concert.photos as photo, i}
 		<button on:click={() => {
 			if(params.buy) goto("/merch?concert=" + data.concert.id + "&pic=" + photo.id)
-			else modelI = i
+
+			
+			else modalI = i
 		}}>
 				<img
 					src={photo.url}
