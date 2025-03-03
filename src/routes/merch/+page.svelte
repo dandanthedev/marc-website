@@ -123,12 +123,13 @@ import {page} from '$app/stores';
         font-size: 20px;
         padding-left: 30px;
         padding-right: 30px;
-        align-items: center;
+    
+        
         position: absolute;
         bottom: 100px;
         left: 0;
         right: 0;
-        size: 10%;
+
 
     }
 
